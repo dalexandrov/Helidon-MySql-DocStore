@@ -16,6 +16,8 @@ import jakarta.validation.constraints.Null;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
 @ApplicationScoped
 @Path("/score")
@@ -29,6 +31,7 @@ public class ScoreResource {
     }
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public String defaultList() throws Exception{
         ArrayList<Object> scores = scoreService.getScores(defaultLimit);
         return getResult(scores);
@@ -36,6 +39,7 @@ public class ScoreResource {
 
     @GET
     @Path("/{limit}")
+    @Produces(MediaType.APPLICATION_JSON)
     public String listLimit(@PathParam("limit") Integer limit ) throws Exception{
         ArrayList<Object> scores = scoreService.getScores(!Objects.isNull(limit) ? limit : defaultLimit );
         return getResult(scores);
