@@ -2,9 +2,8 @@
 
 A demo for using Helidon to access a MySQL Document Store
 
-Helidon implementation of https://github.com/boyzoid/micronaut-document-store-demo
+Helidon variation of https://github.com/boyzoid/micronaut-document-store-demo
 
-All Credits belong to @boyzoid
 
 ## Setup
 
@@ -14,10 +13,11 @@ This setup assumes you already have access to a MySQL database.
 
     * Where `{user}` is the username, `{password}` is the password, and `{host}` is the server domain name or IP address of your MySQL instance.
 * In MySQL Shell, run the command `session.createSchema('mn_demo')` to create the new schema.
-* In MySQL Shell, run the following command: `util.importJson( '/absolute/path/to/project/data/scores.json', {schema: 'mn_demo', collection: 'scores'})`
+* In MySQL Shell, run the following command: `util.importJson( '/absolute/path/to/project/data/scores.json', {schema: 'mn_demo', collection: 'pokemon'})`
 
     * If the process runs successfully, you will see output similar to this:
-      `Processed 12.65 MB in 17477 documents in 4.7405 sec (3.69K documents/s)  Total successfully imported documents 17477 (3.69K documents/s)`
+      `.. 6.. 6
+      Processed 218 bytes in 6 documents in 0.0076 sec (6.00 documents/s)`
 
 ## Run
 
@@ -31,4 +31,16 @@ Run:
 
 ```bash
 java -jar target/doc.jar
+```
+
+Test:
+
+```bash
+curl -X GET http://localhost:8080/pokemons
+```
+
+or with limit:
+
+```bash
+curl -X GET http://localhost:8080/pokemons/3
 ```
