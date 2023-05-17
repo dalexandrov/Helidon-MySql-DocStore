@@ -44,3 +44,33 @@ or with limit:
 ```bash
 curl -X GET http://localhost:8080/pokemons/3
 ```
+
+Try to add a Pokemon:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name" : "Poki", "type" : "3"}' http://localhost:8080/pokemons
+1
+```
+
+See if the new Pokemon is present:
+
+or with limit:
+
+```bash
+curl -X GET http://localhost:8080/pokemons/10
+```
+
+Try to update:
+
+```bash
+ curl -X PUT http://localhost:8080/pokemons/{id}/Pok
+ 1
+```
+
+Delete a pokemon:
+
+```
+curl -X DELETE http://localhost:8080/pokemons/{id}                
+```
+
+Test with get all Pokemons.
