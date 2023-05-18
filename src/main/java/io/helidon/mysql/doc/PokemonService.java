@@ -46,7 +46,6 @@ public class PokemonService {
     }
 
     public Result removePokemon(String id) {
-
         return callInSession(col -> col.removeOne(id)
         );
     }
